@@ -18,7 +18,7 @@ export default function EditPost() {
                 setSummary(postInfo.summary);
             });
         });
-    }, []);
+    }, [id]);
 
     async function updatePost(ev) {
         ev.preventDefault();
@@ -48,13 +48,13 @@ export default function EditPost() {
         <form onSubmit={updatePost}>
             <input
                 type="title"
-                placeholder={"Title"}
+                placeholder="Title"
                 value={title}
                 onChange={(ev) => setTitle(ev.target.value)}
             />
             <input
                 type="summary"
-                placeholder={"Summary"}
+                placeholder="Summary"
                 value={summary}
                 onChange={(ev) => setSummary(ev.target.value)}
             />
