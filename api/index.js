@@ -28,8 +28,8 @@ const s3Client = new S3Client({
 app.use(
     cors({
         credentials: true,
-        // origin: "http://frontend-blog-env.eba-2qx2uce2.us-east-1.elasticbeanstalk.com",
-        origin: "http://localhost:3000",
+        origin: "http://frontend-blog-env.eba-2qx2uce2.us-east-1.elasticbeanstalk.com",
+        // origin: "http://localhost:3000",
     })
 );
 app.use(express.json());
