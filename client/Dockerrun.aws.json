@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-        "Name": "docker.io/allyhaas/frontend-blog:latest1"
+        "Name": "docker.io/allyhaas/frontend-blog:latest3"
     },
     "Ports": [
         {

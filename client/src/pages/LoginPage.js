@@ -9,12 +9,15 @@ export default function LoginPage() {
     const { setUserInfo } = useContext(UserContext);
     async function login(ev) {
         ev.preventDefault();
-        const response = await fetch("http://localhost:4000/login", {
-            method: "POST",
-            body: JSON.stringify({ username, password }),
-            headers: { "Content-Type": "application/json" },
-            credentials: "include",
-        });
+        const response = await fetch(
+            "http://backend-blog-env.eba-qumq2maa.us-east-1.elasticbeanstalk.com/login",
+            {
+                method: "POST",
+                body: JSON.stringify({ username, password }),
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+            }
+        );
         if (response.ok) {
             response.json().then((userInfo) => {
                 setUserInfo(userInfo);

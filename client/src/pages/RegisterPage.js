@@ -5,11 +5,14 @@ export default function RegisterPage() {
     const [password, setPassword] = useState("");
     async function register(ev) {
         ev.preventDefault();
-        const response = await fetch("http://localhost:4000/register", {
-            method: "POST",
-            body: JSON.stringify({ username, password }),
-            headers: { "Content-Type": "application/json" },
-        });
+        const response = await fetch(
+            "http://backend-blog-env.eba-qumq2maa.us-east-1.elasticbeanstalk.com/register",
+            {
+                method: "POST",
+                body: JSON.stringify({ username, password }),
+                headers: { "Content-Type": "application/json" },
+            }
+        );
         if (response.status === 200) {
             alert("registration successful");
         } else {

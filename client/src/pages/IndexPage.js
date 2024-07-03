@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 export default function IndexPage() {
     const [posts, setPost] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:4000/post").then((response) => {
+        fetch(
+            "http://backend-blog-env.eba-qumq2maa.us-east-1.elasticbeanstalk.com/post"
+        ).then((response) => {
             response.json().then((posts) => {
                 setPost(posts);
             });

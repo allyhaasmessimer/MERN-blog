@@ -10,7 +10,9 @@ export default function PostPage() {
     const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:4000/post/${id}`)
+        fetch(
+            `http://backend-blog-env.eba-qumq2maa.us-east-1.elasticbeanstalk.com/post/${id}`
+        )
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Failed to fetch post ${id}`);
@@ -27,10 +29,13 @@ export default function PostPage() {
 
     const handleDelete = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/post/${id}`, {
-                method: "DELETE",
-                credentials: "include",
-            });
+            const response = await fetch(
+                `http://backend-blog-env.eba-qumq2maa.us-east-1.elasticbeanstalk.com/post/${id}`,
+                {
+                    method: "DELETE",
+                    credentials: "include",
+                }
+            );
             if (response.ok) {
                 setRedirect(true);
             } else {

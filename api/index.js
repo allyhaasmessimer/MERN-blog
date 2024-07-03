@@ -25,13 +25,15 @@ const s3Client = new S3Client({
 });
 
 // Middleware
-app.use(
-    cors({
-        credentials: true,
-        origin: "http://frontend-blog-env.eba-2qx2uce2.us-east-1.elasticbeanstalk.com",
-        // origin: "http://localhost:3000",
-    })
-);
+const corsOptions = {
+    credentials: true,
+    origin: [
+        "http://localhost:3000", // Allow requests from localhost during development
+        "http://frontend-blog-env.eba-2qx2uce2.us-east-1.elasticbeanstalk.com", // Allow requests from your deployed frontend
+    ],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -229,6 +231,6 @@ app.get("/post/:id", async (req, res) => {
 });
 
 // Start server
-app.listen(4000, () => {
-    console.log("Server is running on port 4000");
+app.listen(8080, () => {
+    console.log("Server is running on port 8080");
 });
