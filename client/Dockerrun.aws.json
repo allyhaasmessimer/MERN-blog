@@ -1,0 +1,14 @@
+{
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+        "Name": "docker.io/allyhaas/frontend-blog:latest1"
+    },
+    "Ports": [
+        {
+            "ContainerPort": 3000,
+            "HostPort": 80
+        }
+    ],
+    "Volumes": [],
+    "Logging": "/var/log/app"
+}

@@ -14,7 +14,7 @@ const Post = require("./models/Post");
 const app = express();
 const upload = multer(); // No dest, since we don't want to save locally
 const salt = bcrypt.genSaltSync(10);
-const secret = "fdfdgfdsbt65765ryryvggh";
+const secret = process.env.JWT_SECRET || "fdfdgfdsbt65765ryryvggh";
 
 const s3Client = new S3Client({
     region: "us-east-1", // Change to your preferred region
@@ -25,7 +25,12 @@ const s3Client = new S3Client({
 });
 
 // Middleware
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(
+    cors({
+        credentials: true,
+        origin: "http://frontend-blog-env.eba-2qx2uce2.us-east-1.elasticbeanstalk.com",
+    })
+);
 app.use(express.json());
 app.use(cookieParser());
 
