@@ -1,3 +1,4 @@
 .env
 Dockerrun.aws.json
 .zip
+backend-blog-deployment.zip

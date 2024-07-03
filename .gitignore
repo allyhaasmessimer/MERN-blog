@@ -10,3 +10,5 @@ override.tf.json
 *_override.tf.json
 *.tfplan
 planfile.out
+.zip
+backend-blog-deployment.zip
